@@ -25,12 +25,49 @@
         <div class="col-md-12">
             <h1 class="text-center">Today ELTE is feeling...</h1>
             <div class="">
-                <img src="imgs/mood.png" alt="mood" class="img-responsive center-block" />
+				<?php				
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$database = "example_database";
+
+					// Create connection
+					$conn = new mysqli($servername, $username, $password, $database);
+
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+					
+					$sql = "Select idMood,count(*) FROM mood_vote GROUP BY idMood ORDER BY count(*) DESC";
+					$result = $conn->query($sql);
+					if (!$result) 
+					{
+						throw new Exception("Database Error ");
+					}
+					if (mysqli_num_rows($result) != 0)
+					{
+						$mood_id = $result->fetch_assoc()["idMood"];
+					}
+					else
+					{
+						$mood_id = 1;
+					}
+					$sql = "SELECT pictureMoodDirectory FROM mood WHERE moodId = '$mood_id'";
+					$result = $conn->query($sql);
+					if (!$result) 
+					{
+						throw new Exception("Database Error ");
+					}
+					
+					echo "<img src='".$result->fetch_assoc()["pictureMoodDirectory"]."' alt='mood' class='img-responsive center-block' />";
+				?>
             </div>
+			
             <h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adielit. Etiam eget ligula eu lectus lobortis.</h3>
 
-            <a class="btn btn-primary btn-block btn-lg" href="mood-meter.html" role="button">I want to participate!</a>
-            <a class="btn btn-default btn-block btn-lg" href="give-suggestions.html" role="button">I want to suggest!</a>
+            <a class="btn btn-primary btn-block btn-lg" href="mood-meter.php" role="button">I want to participate!</a>
+            <a class="btn btn-default btn-block btn-lg" href="give-suggestions.php" role="button">I want to suggest!</a>
         </div>
 
     </div>

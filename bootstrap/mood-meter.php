@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Give your suggestion</title>
+    <title>Mood meter</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -23,38 +23,44 @@
 
     <div id="index" class="container">
         <div class="col-md-12">
-            <h1 class="text-center">Give your suggestions</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
-            </p>
+            <h1 class="text-center">How do you feel?</h1>
+           
+		   		<form role="form" action="upload_feeling.php" method="post">
+				 <div class="radio">
+				 <?php
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$database = "example_database";
 
-            <input class="form-control input-lg" type="text" placeholder="Type here your suggestion...">
-            <hr/>
+					// Create connection
+					$conn = new mysqli($servername, $username, $password, $database);
 
-            <div class="hashtags">
-                <script>
-                    // placeholders just as example 
-                    for (i = 0; i < 12; i++) {
-                        document.write('<button class="btn btn-default btn-lg" type="submit">#Hashtag ' + i + '</button>');
-                    }
-                </script>
-            </div>
-            <hr/>
-          
-            <div class="row">
-                <div class="col-xs-6">
-                    <a class="btn btn-default btn-block btn-lg" href="#" role="button">Cancel</a>
-                </div>
-
-                <div class="col-xs-6">
-                    <a class="btn btn-primary btn-block btn-lg" href="#" role="button">Send it!</a>
-                </div>
-            </div>
-
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+					
+					$sql = "Select name FROM mood";
+					$result = $conn->query($sql);
+					if (!$result) 
+					{
+						throw new Exception("Database Error ");
+					}
+					
+					while($row = $result->fetch_assoc()) 
+					{
+						echo "<label class='radio-inline'><input type='radio' required name='mood' value=".$row["name"].">".$row["name"]."</label>";
+					}
+				 ?>
+				  </div>
+				  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		   
         </div>
 
 
-
+    
 
 
     </div>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Mood meter</title>
+    <title>Give your suggestion</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -23,12 +23,48 @@
 
     <div id="index" class="container">
         <div class="col-md-12">
-            <h1 class="text-center">TO DO!</h1>
-           
+            <h1 class="text-center">Give your suggestions</h1>
+
+			<form role="form" action="upload_suggestion.php" method="post">
+				 <div class="form-group">
+				  Suggestion:<br>
+				  <input type="text" class="form-control" name="suggestion" required="required">
+				 </div>
+				 <div class="checkbox">
+					 <?php
+						$servername = "localhost";
+						$username = "root";
+						$password = "";
+						$database = "example_database";
+
+						// Create connection
+						$conn = new mysqli($servername, $username, $password, $database);
+
+						// Check connection
+						if ($conn->connect_error) {
+							die("Connection failed: " . $conn->connect_error);
+						}
+						
+						$sql = "Select name FROM mood";
+						$result = $conn->query($sql);
+						if (!$result) 
+						{
+							throw new Exception("Database Error ");
+						}
+						
+						while($row = $result->fetch_assoc()) 
+						{
+							echo "<label class='checkbox-inline'><input type='checkbox' name='mood[]' value=".$row["name"].">".$row["name"]."</label>";
+						}
+					 ?>				 
+				  </div>
+				  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+
         </div>
 
 
-    
+
 
 
     </div>
