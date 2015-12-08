@@ -27,10 +27,12 @@
 
 			<form role="form" action="upload_suggestion.php" method="post">
 				 <div class="form-group">
-				  Suggestion:<br>
-				  <input type="text" class="form-control" name="suggestion" required="required">
+				  
+				  <input type="text" class="form-control  input-lg" name="suggestion" required="required" placeholder="Type here what people should do">
 				 </div>
-				 <div class="checkbox">
+                <h3>People should do this when they're...</h3>
+                <p class="small">* You can select more than one</p>
+				 <div class="checkbox moods">
 					 <?php
 						$servername = "localhost";
 						$username = "root";
@@ -54,11 +56,14 @@
 						
 						while($row = $result->fetch_assoc()) 
 						{
-							echo "<label class='checkbox-inline'><input type='checkbox' name='mood[]' value=".$row["name"].">".$row["name"]."</label>";
+							echo "
+                            <div class='btn btn-default btn-lg btn-padding'>
+                            <label class='checkbox-inline'><input type='checkbox' class='btn btn-default' name='mood[]' value=".$row["name"].">".$row["name"]."</label></div>";
 						}
 					 ?>				 
 				  </div>
-				  <button type="submit" class="btn btn-default">Submit</button>
+                <br/><br/>
+				  <button type="submit" class="btn btn-default btn-lg btn-block btn-primary ">Submit</button>
 			</form>
 
         </div>

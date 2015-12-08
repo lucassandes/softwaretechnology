@@ -23,7 +23,7 @@
 
     <div id="index" class="container">
         <div class="col-md-12">
-            <h1 class="text-center">How do you feel?</h1>
+            <h1 class="text-center">How do you feel today?</h1>
            
 		   		<form role="form" action="upload_feeling.php" method="post">
 				 <div class="radio">
@@ -50,11 +50,14 @@
 					
 					while($row = $result->fetch_assoc()) 
 					{
-						echo "<label class='radio-inline'><input type='radio' required name='mood' value=".$row["name"].">".$row["name"]."</label>";
+						echo "
+                          <div class='btn btn-default btn-lg btn-padding'>
+                        <label class='radio-inline'><input type='radio' required name='mood' value=".$row["name"].">".$row["name"]."</label></div>";
 					}
 				 ?>
 				  </div>
-				  <button type="submit" class="btn btn-default">Submit</button>
+                    <br/><br/>
+				  <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Submit</button>
 			</form>
 		   
         </div>
