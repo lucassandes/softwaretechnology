@@ -1,3 +1,4 @@
+<?php 	include 'connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,18 +27,7 @@
             <h1 class="text-center">Today ELTE is feeling...</h1>
             <div class="">
 				<?php				
-					$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$database = "example_database";
-
-					// Create connection
-					$conn = new mysqli($servername, $username, $password, $database);
-
-					// Check connection
-					if ($conn->connect_error) {
-						die("Connection failed: " . $conn->connect_error);
-					}
+				
 					
 					$sql = "Select idMood,count(*) FROM mood_vote GROUP BY idMood ORDER BY count(*) DESC";
 					$result = $conn->query($sql);

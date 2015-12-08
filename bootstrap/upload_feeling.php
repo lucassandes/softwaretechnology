@@ -1,3 +1,4 @@
+<?php 	include 'connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,18 +31,7 @@
 			    $mood = $_POST['mood'];
 
 				
-				$servername = "localhost";
-				$username = "root";
-				$password = "";
-				$database = "example_database";
-
-				// Create connection
-				$conn = new mysqli($servername, $username, $password, $database);
-
-				// Check connection
-				if ($conn->connect_error) {
-					die("Connection failed: " . $conn->connect_error);
-				}
+				
 				
 				$sql = "SELECT moodId FROM mood WHERE name = '$mood'";
 				$result = $conn->query($sql);
