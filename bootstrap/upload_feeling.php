@@ -30,8 +30,7 @@
 			<?php
 			    $mood = $_POST['mood'];
 
-				
-				
+					
 				
 				$sql = "SELECT moodId FROM mood WHERE name = '$mood'";
 				$result = $conn->query($sql);
