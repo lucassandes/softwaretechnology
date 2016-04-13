@@ -17,15 +17,17 @@ primary key	(moodId)
 CREATE TABLE IF NOT EXISTS suggestion
 (
 suggestionId bigint AUTO_INCREMENT,
-titleSuggestion varchar(20),
+titleSuggestion varchar(200),
 linkSuggestion varchar(20),
 pictureSuggestionDirectory varchar(40),
+reportNumber bigint DEFAULT 0,
 primary key	(suggestionId)
 );
 
 CREATE TABLE IF NOT EXISTS mood_vote
 (
 idMood bigint,
+voteTime timestamp DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (idMood) REFERENCES mood(moodId)
 );
 
