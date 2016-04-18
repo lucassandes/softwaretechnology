@@ -31,7 +31,7 @@
 				 <?php
 					
 					
-					$sql = "Select name FROM mood";
+					$sql = "Select name FROM mood;";
 					$result = $conn->query($sql);
 					if (!$result) 
 					{
