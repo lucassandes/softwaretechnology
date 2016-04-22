@@ -1,5 +1,3 @@
-
-
 <?php 
 	include 'resources/connect.php'; 
 
@@ -7,18 +5,18 @@
 	$suggestion = $_POST['suggestion'];
 	$sugg_url = $_POST['url'];
 
-	if(substr($sugg_url, 0, 4) != "http") {
-		$sugg_url = "http://".$sugg_url;
-	}
-
 	// Valid URL
 	if(!empty($sugg_url)) {
+
+		if(substr($sugg_url, 0, 4) != "http") {
+			$sugg_url = "http://".$sugg_url;
+		}
+
 		if (!filter_var($sugg_url, FILTER_VALIDATE_URL) === false) {
-			echo("$url is a valid URL");
+			print("$url is a valid URL");
 		} else {
-			echo("$url is not a valid URL");
+			print("$url is not a valid URL");
 			header("Location: give-suggestions.php");
-			die();
 		}
 	}
 
