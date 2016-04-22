@@ -1,4 +1,4 @@
-<?php 	include 'connect.php'; ?>
+<?php 	include 'resources/connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,8 +54,6 @@
 				?>
             </div>
 			
-            <h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adielit. Etiam eget ligula eu lectus lobortis.</h3>
-
             <a class="btn btn-primary btn-block btn-lg" href="mood-meter.php" role="button">I want to participate!</a>
             <a class="btn btn-default btn-block btn-lg" href="give-suggestions.php" role="button">I want to suggest!</a>
         </div>

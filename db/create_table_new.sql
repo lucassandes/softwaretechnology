@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS example_database;
-USE example_database;
+CREATE DATABASE IF NOT EXISTS st;
+USE st;
 
 DROP TABLE IF EXISTS mood_vote;
 DROP TABLE IF EXISTS suggestion_markers;
@@ -39,22 +39,22 @@ FOREIGN KEY (idMood) REFERENCES mood(moodId),
 FOREIGN KEY (idSuggestion) REFERENCES suggestion(suggestionId)
 );
 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (1,'tense', 'mood_images/tense.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (2,'nervous', 'mood_images/nervous.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (3,'stressed', 'mood_images/stressed.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (4,'upset', 'mood_images/upset.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (5,'sad', 'mood_images/sad.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (6,'depressed', 'mood_images/depressed.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (7,'bored', 'mood_images/bored.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (8,'fatigued', 'mood_images/fatigued.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (9,'alert', 'mood_images/alert.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (10,'excited', 'mood_images/excited.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (11,'elated', 'mood_images/elated.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (12,'happy', 'mood_images/happy.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (13,'contented', 'mood_images/contented.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (14,'serene', 'mood_images/serene.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (15,'relaxed', 'mood_images/relaxed.jpg'); 
-INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (16,'calm', 'mood_images/calm.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (1,'tense', 'images/content/mood_images/tense.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (2,'nervous', 'images/content/mood_images/nervous.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (3,'stressed', 'images/content/mood_images/stressed.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (4,'upset', 'images/content/mood_images/upset.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (5,'sad', 'images/content/mood_images/sad.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (6,'depressed', 'images/content/mood_images/depressed.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (7,'bored', 'images/content/mood_images/bored.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (8,'fatigued', 'images/content/mood_images/fatigued.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (9,'alert', 'images/content/mood_images/alert.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (10,'excited', 'images/content/mood_images/excited.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (11,'elated', 'images/content/mood_images/elated.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (12,'happy', 'images/content/mood_images/happy.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (13,'contented', 'images/content/mood_images/contented.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (14,'serene', 'images/content/mood_images/serene.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (15,'relaxed', 'images/content/mood_images/relaxed.jpg'); 
+INSERT INTO mood (moodId, name, pictureMoodDirectory) VALUES (16,'calm', 'images/content/mood_images/calm.jpg'); 
 
 INSERT INTO suggestion (suggestionId, titleSuggestion, linkSuggestion, pictureSuggestionDirectory) VALUES (1, 'Everything will be fine!','',''); 
 INSERT INTO suggestion (suggestionId, titleSuggestion, linkSuggestion, pictureSuggestionDirectory) VALUES (2, 'Nervous because of an exam? Well, if you feel like you did everything you can, everything will be fine... if not, what are you doing here, go back and learn some more!','',''); 

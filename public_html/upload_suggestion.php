@@ -1,7 +1,7 @@
 
 
 <?php 
-	include 'connect.php'; 
+	include 'resources/connect.php'; 
 
 	$moods = $_POST['mood'];
 	$suggestion = $_POST['suggestion'];
