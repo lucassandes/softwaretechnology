@@ -1,4 +1,4 @@
-<?php 	include 'connect.php'; ?>
+<?php include 'connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Give your suggestion</title>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap -->  
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,8 +45,13 @@
 <body>
 
     <div id="index" class="container">
-        <div class="col-md-12">
+        <div class="col-md-12">    
             <h1 class="text-center">Give your suggestions</h1>
+
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+            </div>
 
 			<form role="form" action="upload_suggestion.php" method="post">
 				
@@ -56,10 +61,10 @@
 
                     <br/>
                     <div class="input-group input-group-lg">
-                        <span class="input-group-addon" id="link-addon">
+                        <span class="input-group-addon" id="url-addon">
                             <i class="glyphicon glyphicon-link"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="http://" aria-describedby="link-addon">
+                        <input type="text" class="form-control" name="url" placeholder="http://" aria-describedby="url-addon">
                     </div>
 
                     <br/>
@@ -78,10 +83,9 @@
                 <div class="checkbox moods">
 				<?php
 
-    				$sql = "select name from mood";
+    				$sql = "select moodId as id, name from mood";
     				$result = $conn->query($sql);
-    				if (!$result) 
-    				{
+    				if (!$result) {
     					throw new Exception("Database Error.");
     				}
     				
@@ -89,7 +93,7 @@
     				{
     					echo "
                         <div class='btn btn-default btn-lg btn-padding'>
-                        <label class='checkbox-inline'><input type='checkbox' class='btn btn-default' name='mood[]' value=".$row["name"].">".$row["name"]."</label></div>";
+                        <label class='checkbox-inline'><input type='checkbox' class='btn btn-default' name='mood[]' value=".$row["id"].">".$row["name"]."</label></div>";
     				}
 				?>				 
 				</div>
@@ -102,6 +106,7 @@
 			</form>
 
         </div>
+        <div id="output"></div>
     </div>
 
 
@@ -135,6 +140,7 @@
                 }
             });
         });
+
     </script>
 </body>
 
