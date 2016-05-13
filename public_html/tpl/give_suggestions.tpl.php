@@ -1,18 +1,32 @@
 
-<h1 class="text-center">Give your suggestions</h1>
+<h1 class="text-center">Give your suggestion</h1>
 
-<div class="alert alert-danger">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
-</div>
+<?php
+
+if($has_error) {
+    echo <<<HTML
+        <div class='alert alert-danger'>
+        <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <ul>
+HTML;
+    
+    foreach ($errs as &$error) {
+        echo "<li>" . $error . "</li>";
+    }
+
+    echo "</ul> </div>"; 
+}
+?>
 
 <form role="form" action="upload_suggestion.php" method="post">
     
     <div class="form-group">
 
-        <input type="text" class="form-control input-lg" name="suggestion" required="required" placeholder="Type here what people should do">
-
+        
+        <input type="text" class="form-control input-lg" name="suggestion" required="required" placeholder="Type here what people should do" value="<?php echo $vals['suggestion']; ?>">
+        
         <br/>
+
         <div class="input-group input-group-lg">
             <span class="input-group-addon" id="url-addon">
                 <i class="glyphicon glyphicon-link"></i>
