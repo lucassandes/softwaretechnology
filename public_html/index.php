@@ -1,6 +1,8 @@
 <?php
 require_once("resources/template.tpl.php");
 
+init_session_values();
+
 $sql = "Select idMood,count(*) FROM mood_vote GROUP BY idMood ORDER BY count(*) DESC";
 
 $result = $conn->query($sql);

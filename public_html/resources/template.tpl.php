@@ -1,5 +1,8 @@
 <?php
     
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
     // Include conf file.
     require_once(realpath(dirname(__FILE__) . "/../resources/config.conf.php"));
@@ -8,8 +11,7 @@
     require_once(realpath(dirname(__FILE__) . "/../resources/connect.php"));
 
     // Render any page using some template.
-    function renderLayoutWithContentFile($contentFile, $variables = array())
-    {
+    function renderLayoutWithContentFile($contentFile, $variables = array()) {
 
         $contentFileFullPath = TEMPLATES_PATH . "/" . $contentFile;
      
@@ -53,5 +55,13 @@
 
         echo "</body>\n";
         echo "</html>\n";
+    }
+
+    function init_session_values() {
+
+        $_SESSION["has_error"] = false;
+        $_SESSION["errs"] = array();            
+        $_SESSION["vals"] = array();
+        
     }
 ?>
