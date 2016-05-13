@@ -43,7 +43,7 @@
         if (file_exists($contentFileFullPath)) {
             require_once($contentFileFullPath);
         } else {
-            print "error";
+            print "page_not_found.php";
         }
      
         // close container div

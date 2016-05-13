@@ -1,5 +1,6 @@
 <?php
  
+ // TODO: change the configurations.
 $config = array(
     "db" => array(
         "db1" => array(
